@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT">
+	<meta http-equiv="Pragma" content="no-cache">
+	<title>记忆游戏</title>	
+</head>    
+
+
+
+<body>	
+	
+	<div class="wrap content">
+	<div class="game"></div>		
+		<div class="modal-overlay">
+			<div class="modal">
+				<h2 class="winner"></h2>
+				<form>
+				<input type="text" placeholder="name">
+				<button class="inrank">去排名</button>
+			</form>
+				<button class="restart">再玩一次</button>
+				<button class="ranking">排行</button>
+			</div>
+		</div>
+		<div class="sidebar">
+			<div class="logo"><img src="img/logo.png" alt=""></div>						
+			<button class="restart">重新开始</button>	
+			<a href="#ranking" class="popup"><button class="ranking">排行</button></a>
+
+			<a href="en.html" class="lang">EN</a>
+		</div>
+	  </div><!-- End Wrap -->
+	 <div id="ranking" class="mfp-hide mfp-fade">
+	 	<h2>排行</h2>
+	 	<ul>	 		
+	 	</ul>
+	 </div>
+	<div class="noExtension" style="display: none"> 
+		注意：请安装 <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a>  使用Nebery或尝试CTRL + F5
+	</div>
+	<div class="errNetwork" style="display: none">
+		注意：对不起，您使用不正确的网络
+	</div>	
+	
+	<script src='lib/jquery-3.3.1.min.js'></script>
+	<link rel="stylesheet" href="lib/main.css">	
+    <script src='lib/nebPay.js'></script>    	
+    <script src="lib/common.js"></script>
+    <script src='lib/jquery.magnific-popup.js'></script> 	
+    <link rel="stylesheet" href="lib/magnific-popup.css">    
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">    
+    <script>
+	    $('.popup').magnificPopup({
+		    type:'inline',
+		    fixedContentPos: true, 
+		    mainClass: 'mfp-fade',      
+		    showCloseBtn: true,
+		    closeOnBgClick: true
+		  });   
+	</script>
+</body>
+</html>

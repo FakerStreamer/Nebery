@@ -1,0 +1,349 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body {
+  background: #f2e0ff;
+  min-height: 100%;
+  font-family: "Arial", sans-serif;
+}
+.wrap {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+  padding-bottom: 20px;
+  width: 1000px;  
+}
+.game {
+  transform-style: preserve-3d;
+  perspective: 500px;
+  min-height: 100%;
+  height: 100%;
+}
+@keyframes matchAnim {
+  0% {
+    background: #bcffcc;
+  }
+  100% {
+    background: white;
+  }
+}
+.card {
+  float: left;
+  width: 16.66666%;
+  height: 25%;
+  padding: 5px;
+  text-align: center;
+  display: block;
+  perspective: 500px;
+  position: relative;
+  cursor: pointer;  
+  z-index: 50;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+@media (max-width: 800px) {
+  .card {
+    width: 25%;
+    height: 16.666%;
+  }
+}
+.card .inside {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform-style: preserve-3d;
+  transition: 0.4s ease-in-out;
+  background: white;
+}
+.card .inside.picked, .card .inside.matched {
+  transform: rotateY(180deg);
+}
+.card .inside.matched {
+  animation: 1s matchAnim ease-in-out;
+  animation-delay: 0.4s;  
+}
+.card .front, .card .back {
+  border: 1px solid black;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+.card .front img, .card .back img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+}
+.card .front {
+  transform: rotateY(-180deg);
+  background: #f2e0ff;
+  padding: 5px;
+}
+@media (max-width: 800px) {
+  .card .front {
+    padding: 5px;
+  }
+}
+.card .back {
+  transform: rotateX(0);
+}
+@media (max-width: 800px) {
+  .card .back {
+    padding: 10px;
+  }
+}
+.modal-overlay {
+  display: none;
+  background: rgba(0, 0, 0, .8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.modal {
+  display: none;
+  position: relative;
+  width: 800px;
+  max-width: 90%;  
+  margin: 0 auto;
+  background: white;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 30px 10px 50px 10px;
+  text-align: center;
+}
+h2 {
+  font-size: 60px;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  color: #000;  
+}
+.modal .winner {
+  font-size: 60px;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  color: #000;  
+}
+@media (max-width: 480px) {
+  .modal .winner {
+    font-size: 60px;
+  }
+}
+.modal button {
+  font-family: "Arial", sans-serif;
+  margin: 30px auto;
+  padding: 14px;
+  display: block;
+  font-size: 16px;
+  border: none;
+  display: inline-block;  
+  width: 160px;
+  background: #0555fd;  
+  border-radius: 5px;
+  color: white;  
+  cursor: pointer;
+}
+.modal h2 {  
+  padding: 0;
+  margin: 40px 0 30px 0;
+}
+.modal .restart {
+  margin-right: 30px;
+}
+.modal button:hover {
+  background: #0137a7;
+}
+button:focus, a:focus {
+  outline: unset;
+}
+.modal .message {
+  text-align: center;
+}
+.modal .message a {
+  text-decoration: none;
+  color: #28afe6;
+  font-weight: bold;
+}
+.modal .message a:hover {
+  color: #56c0eb;
+  border-bottom: 1px dotted #56c0eb;
+}
+.modal .share-text {
+  text-align: center;
+  margin: 10px auto;
+}
+.modal .social {
+  margin: 20px auto;
+  text-align: center;
+}
+.modal .social li {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+.modal .social li:last-child {
+  margin-right: 0;
+}
+.modal .social li a {
+  display: block;
+  line-height: 50px;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.modal .social li a.facebook {
+  background: #3b5998;
+}
+.modal .social li a.facebook:hover {
+  background: #4c70ba;
+}
+.modal .social li a.google {
+  background: #d34836;
+}
+.modal .social li a.google:hover {
+  background: #dc6e60;
+}
+.modal .social li a.twitter {
+  background: #4099ff;
+}
+.modal .social li a.twitter:hover {
+  background: #73b4ff;
+}
+footer {
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 0;
+}
+footer .disclaimer {
+  line-height: 20px;
+  font-size: 12px;
+  color: #727272;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  footer .disclaimer {
+    font-size: 8px;
+  }
+}
+
+.border {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sidebar {
+  text-align: center;
+  width: 300px;
+  position: absolute;
+  top: 0px;
+  padding-top: 10px;
+  right: -300px;
+  height: 100vh;
+}
+
+.sidebar button {  
+  font-family: "Arial", sans-serif;
+  margin: 10px auto;
+  padding: 14px;
+  display: block;
+  font-size: 16px;
+  border: none;
+  display: inline-block;  
+  width: 160px;
+  background: #0555fd;  
+  border-radius: 5px;
+  color: white;  
+  cursor: pointer;
+}
+
+.sidebar button:hover{
+  background: #0137a7;
+}
+
+button {
+  transition: .4s;
+}
+
+.logo img {
+  width: 200px;
+  margin-bottom: 200px;
+}
+
+input {
+  height: 46px;
+  border: unset;
+  border-bottom: 1px solid #0555fd;
+  padding: 0 10px;
+  margin-right: 40px;
+}
+
+#ranking {
+  background: #fff;
+  position: relative;
+  width: 1100px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #f2e0ff; 
+}
+
+ul {
+  list-style: none;
+  width: 100%;
+  position: relative;  
+}
+li {
+  position: relative;
+  width: 100%;
+}
+.name, .result {  
+  display: inline-block;
+}
+.name {
+  margin-left: 40%;
+  width: 40%;
+}
+
+.result {
+  font-size: 18px;
+  width: 10%;
+}
+
+li:nth-child(1) .name, li:nth-child(1) .result {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.adress {
+  font-size: 12px;
+  opacity: .6;
+  display: block;  
+  margin-top: 5px;
+}
+
+li {
+  margin-bottom: 15px;
+  width: 70%;
+  vertical-align: middle;
+}
+
+.lang {
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+}
